@@ -1,0 +1,27 @@
+<header>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="navbar-brand align-item-center d-flex">
+      <i style="font-size: 40px" class="fas fa-shipping-fast">&nbsp; </i>
+      <a routerLink="products">
+        <strong style="font-size: 20px">Shopping Cart</strong>
+      </a>
+      <div class="form-group">
+        <input type="text" class="form-control" />
+      </div>
+      <span class="fas fa-search search-icon"></span>
+    </div>
+    <a routerLink="/cart">
+      <div>
+        <button>
+          <i
+            style="font-size: 30px; margin-right: 20px; color: brown;"
+            class="fas fa-shopping-cart"
+            ><div class="badge bg-danger" style="font-size: 13px; color: black">
+              {{ totalItem }}
+            </div></i
+          >
+        </button>
+      </div>
+    </a>
+  </div>
+</header>

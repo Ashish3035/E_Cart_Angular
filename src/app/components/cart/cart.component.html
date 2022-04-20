@@ -1,0 +1,90 @@
+<ng-container *ngIf="products.length != 0">
+  <div class="container flex justify-center my-20">
+    <div class="flex flex-col">
+      <div class="w-full">
+        <div class="border-b border-gray-200 shadow">
+          <table>
+            <thead class="bg-gray-50">
+              <tr>
+                <th class="px-6 py-2 text-xs text-gray-500">Sr.No.</th>
+                <th class="px-6 py-2 text-xs text-gray-500">Product</th>
+                <th class="px-6 py-2 text-xs text-gray-500">Title</th>
+                <th class="px-6 py-2 text-xs text-gray-500">Price</th>
+                <th class="px-6 py-2 text-xs text-gray-500">Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products; let i = index">
+                <th class="px-6 py-2 text-xs text-gray-500">{{ i + 1 }}</th>
+                <th>
+                  <img [src]="product.imageSrc" style="width: 4rem" />
+                </th>
+                <td class="mx-8 ...">{{ product.title }}</td>
+                <td>{{ product.price }}</td>
+                <td>
+                  <button (click)="increase(product)">+</button>
+                  {{ product.quantity }}
+                  <button (click)="decrease(product)">-</button>
+                </td>
+                <button
+                  (click)="removeItem(product)"
+                  class="bg-red-500 text-gray-100 mt-2 px-5 ml-9 ..."
+                >
+                  X
+                </button>
+              </tr>
+              <tr>
+                <td>
+                  <button class="btn btn-danger" (click)="emptyCart()">
+                    Clear all
+                  </button>
+                </td>
+
+                <td>
+                  <button class="btn btn-primary" routerLink="/products">
+                    Shop More
+                  </button>
+                </td>
+                <td>
+                  <h2 class="px-6 py-2 text-xl text-gray-500">
+                    TOTAL AMOUNT: $ {{ grandTotal }}
+                  </h2>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="products.length == 0">
+  <div class="container">
+    <div class="card">
+      <h5 class="card-title">My Cart</h5>
+    </div>
+    <div class="center">
+      <img
+        src="/assets/images/cart.webp"
+        alt=""
+        style="
+          height: 30%;
+          width: 30%;
+          margin-left: 35%;
+          margin-top: -10%;
+          margin-bottom: 5%;
+        "
+      />
+      <h3>Missing Cart items?</h3>
+      <h6>Add Item to It Now</h6>
+      <button
+        class="btn btn-primary"
+        style="margin-top: 25px"
+        routerLink="/products"
+      >
+        Shop Now
+      </button>
+    </div>
+  </div>
+</ng-container>
